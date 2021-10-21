@@ -14,14 +14,8 @@ saveButton.addEventListener("click", async (event) => {
 
   let customCss = cssInput.value;
   chrome.storage.sync.set({ [domain]: customCss }, () => {
-    // var style = document.getElementById('PageStylerContent');
-    // if (style === null) {
-    //   style = document.createElement('style')
-    //   style.id = "PageStylerContent";
-    // }
-    // style.innerHTML = customCss;
-    // document.head.appendChild(style);
-    chrome.tabs.sendMessage(tab.id, {PageStylerContent: customCss}, ReceivedMessage);
+    chrome.tabs.sendMessage(tab.id, {PageStylerContent: customCss});
+    // chrome.tabs.sendMessage(tab.id, {PageStylerContent: customCss}, ReceivedMessage);
   });
 });
 
