@@ -14,6 +14,8 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
       target: { tabId: tabId },
       function: setPageBackgroundColor,
     });
+
+    //todo: send message
   }
 })
 
@@ -25,8 +27,12 @@ function setPageBackgroundColor() {
   var domain = matches[1];
   console.log(domain);
   chrome.storage.sync.get(domain, (item) => {
-    var style = document.createElement('style')
+    var style = document.getElementById('PageStylerContent');
+    if (style === null) {
+      style = document.createElement('style')
+      style.id = "PageStylerContent";
+    }
     style.innerHTML = item[domain];
-    document.head.appendChild(style)
+    document.head.appendChild(style);
   });
 }

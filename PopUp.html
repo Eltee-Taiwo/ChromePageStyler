@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <link rel="stylesheet" href="/styles/PopUpStyles.css">
-  </head>
-  <body>
-    <button id="changeColor"></button>
-    <script src="/scripts/PopUp.js"></script>
-  </body>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 offset-sm-1">
+                <h2 class="title text-center">Page Styler</h2>
+                <form>
+                    <div class="form-group">
+                        <textarea rows="7" type="text" class="form-control" id="cssInput" aria-describedby="CSS Input" placeholder="Enter CSS here"></textarea>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="IsActive">
+                        <label class="form-check-label" for="exampleCheck1">Active</label>
+                    </div>
+                    <button id="SaveButton" class="btn btn-primary">Save</button>
+                </form>
+                <script src="/scripts/PopUp.js"></script>
+
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
