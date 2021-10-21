@@ -19,7 +19,7 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
 // The body of this function will be executed as a content script inside the
 // current page
 function SetPageStyle() {
-  const myRegexp = new RegExp("^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)", "g");
+  const myRegexp = new RegExp("^(?:https?:\/\/)?(?:[^@\n]+@)?(?:(www\.)?[^:\/\n?]+)", "g");
   var matches = myRegexp.exec(document.domain);
   var domain = matches[1];
   chrome.storage.sync.get(domain, (item) => {
