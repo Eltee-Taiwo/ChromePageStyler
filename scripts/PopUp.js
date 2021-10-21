@@ -1,10 +1,13 @@
-console.log('Pop.Js was loaded!');
+window.onload = async function() {
+  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  chrome.tabs.sendMessage(tab.id, {Action: "GetPageStyler", Sender: "PopUp"}, PopulateCssInput);
+}
 
 // Initialize button with user's preferred color
 let saveButton = document.getElementById("SaveButton");
 let cssInput = document.getElementById("cssInput");
 
-// When the button is clicked, inject setPageBackgroundColor into current page
+// When the button is clicked, save the current style and apply it.
 saveButton.addEventListener("click", async (event) => {
   event.preventDefault();
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -14,11 +17,11 @@ saveButton.addEventListener("click", async (event) => {
 
   let customCss = cssInput.value;
   chrome.storage.sync.set({ [domain]: customCss }, () => {
-    chrome.tabs.sendMessage(tab.id, {PageStylerContent: customCss});
-    // chrome.tabs.sendMessage(tab.id, {PageStylerContent: customCss}, ReceivedMessage);
+    //Now that the style content has saved, send a message to the ActiveStyleLoader on the page to update the stylesheet.
+    chrome.tabs.sendMessage(tab.id, {Action: "SetPageStyler", PageStylerContent: customCss, Sender: "PopUp"});
   });
 });
 
-function ReceivedMessage(styleContent) {
-  console.log('I received the following style content:\n' + styleContent);
+function PopulateCssInput(styleContent) {
+  cssInput.value = styleContent;
 }
