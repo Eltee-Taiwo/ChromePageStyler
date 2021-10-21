@@ -1,0 +1,29 @@
+{
+    "action": {
+        "default_icon": {
+            "16": "/images/logo_16.png",
+            "32": "/images/logo_32.png",
+            "48": "/images/logo_48.png",
+            "128": "/images/logo_128.png"
+        },
+        "default_popup": "PopUp.html"
+    },
+    "author": "Eltee Taiwo",
+    "background": {
+        "service_worker": "/scripts/StyleLoader.js"
+    },
+    "description": "A chrome extension to force custom CCS files!",
+    "homepage_url": "https://github.com/Eltee-Taiwo/ChromePageStyler",
+    "icons": {
+        "16": "/images/logo_16.png",
+        "32": "/images/logo_32.png",
+        "48": "/images/logo_48.png",
+        "128": "/images/logo_128.png"
+    },
+    "manifest_version": 3,
+    "name": "Page Styler",
+    "permissions": [
+        "storage", "activeTab", "tabs", "scripting"
+    ],
+    "version": "0.4"
+}
