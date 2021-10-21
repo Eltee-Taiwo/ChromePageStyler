@@ -12,6 +12,16 @@
     "background": {
         "service_worker": "/scripts/StyleLoader.js"
     },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "/scripts/ActiveStyleLoader.js"
+            ]
+        }
+    ],
     "description": "A chrome extension to force custom CCS files!",
     "homepage_url": "https://github.com/Eltee-Taiwo/ChromePageStyler",
     "host_permissions": [
@@ -31,5 +41,5 @@
         "tabs",
         "scripting"
     ],
-    "version": "0.6.0"
+    "version": "0.7.0"
 }

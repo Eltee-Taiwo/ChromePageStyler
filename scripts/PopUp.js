@@ -21,5 +21,10 @@ saveButton.addEventListener("click", async (event) => {
     // }
     // style.innerHTML = customCss;
     // document.head.appendChild(style);
+    chrome.tabs.sendMessage(tab.id, {PageStylerContent: customCss}, ReceivedMessage);
   });
 });
+
+function ReceivedMessage(styleContent) {
+  console.log('I received the following style content:\n' + styleContent);
+}
